@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney API con let</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+    #resultado img { width: 200px; border-radius: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>Personajes de Disney</h1>
+  <button onclick="obtenerPersonaje()">Obtener Personaje</button>
+  <div id="resultado"></div>
+
+  <script>
+    async function obtenerPersonaje() {
+    
+        let response = await fetch("https://api.disneyapi.dev/character");
+        let data = await response.json();
+        let personajes = data.data;
+        let index = Math.floor(Math.random() * personajes.length);
+        let personaje = personajes[index];
+
+        let resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.innerHTML = `
+          <h2>${personaje.name}</h2>
+          <img src="${personaje.imageUrl}" alt="${personaje.name}">
+        `;
+    }
+  </script>
+
+</body>
+</html>
+api.disneyapi.dev

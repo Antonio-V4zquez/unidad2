@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="ContainerHijo">
+<button id="btn1">btn1</button>
+<button id="btn2">btn2</button>
+<button id="btn3">btn3</button>
+<button id="btn4">btn4</button>
+    </div>
+
+<div id="containerPadre"> 
+    <div id="hijo1">
+        <button id="btn5">btn5</button>
+        <button id="btn6">btn6</button>
+        <button id="btn7">btn7</button>
+        <button id="btn8">btn8</button>
+    </div>
+</div>
+
+<div id="ContainerHijo2">
+<button id="btn9">btn9</button>
+<button id="btn10">btn10</button>
+<button id="btn11">btn11</button>
+<button id="btn12">btn12</button>
+    </div>
+<script>
+    window.onload = function(){
+        document.getElementById("containerPadre").addEventListener("click",(e)=>{
+        console.log("clic en el padre")});
+    
+        document.getElementById("hijo1").addEventListener("click",(e)=>{
+    console.log("clic en el hijo")});
+
+    document.getElementById("btn12").addEventListener("click",(e)=>{
+        console.log("clic en el boton")
+        e.stopImmediatePropagation();
+    });
+
+    
+    }
+        </script>
+</body>
+</html>
